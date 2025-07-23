@@ -1,0 +1,34 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.IO;
+using Excel = Microsoft.Office.Interop.Excel;
+
+namespace ConsoleApplication14
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            
+            Console.WriteLine(Directory.CreateDirectory("D:\\Folder"));
+
+            if (Directory.Exists("D:\\Folder"))
+            {
+                Console.WriteLine(File.Create("D:\\Folder\\Ravi.txt"));
+            }
+            if (File.Exists("D:\\Folder\\Ravi.txt"))
+            {
+                System.IO.FileStream wFile;
+                byte[] byteData;
+                byteData = Encoding.ASCII.GetBytes("FileStream Test1");
+                wFile = new FileStream("D:\\Ravi.txt", FileMode.Append);
+                wFile.Write(byteData, 0, byteData.Length);
+                wFile.Close();
+
+            }
+        }
+    }
+}
